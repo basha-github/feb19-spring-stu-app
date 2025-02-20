@@ -1,5 +1,7 @@
 package com.stpeters.stu.marks.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,11 @@ public class CarService {
 			res = "not able to insert new Car..." + car.getModel();
 		}
 		return res;
+	}
+
+	public List<Car> fetchAllCars() {
+		
+		return carRepo.findAll();
 	}
 
 }
