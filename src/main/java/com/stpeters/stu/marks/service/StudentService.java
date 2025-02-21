@@ -1,5 +1,7 @@
 package com.stpeters.stu.marks.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,11 @@ public class StudentService {
 			res = "not able to insert new Student..."+stu.getRollNo();
 		}
 		return res;
+	}
+
+	public List<Student> fetAllStudents() {
+		
+		return stuRepo.findAll();
 	}
 
 }

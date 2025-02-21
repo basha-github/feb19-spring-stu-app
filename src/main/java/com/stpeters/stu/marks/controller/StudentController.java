@@ -1,7 +1,10 @@
 package com.stpeters.stu.marks.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,5 +27,17 @@ public class StudentController {
 		
 		return stuService.saveNewStudent(stu);
 	}
+	
+	@GetMapping("/stu/mng/get/all")
+	public List<Student> getAllStus(){
+		
+		return stuService.fetAllStudents();
+	}
 
+	
+	
+	
+	
+	
+	
 }
