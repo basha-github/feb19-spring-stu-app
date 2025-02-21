@@ -10,7 +10,7 @@ import com.stpeters.stu.marks.repo.StudentRepo;
 
 @Service
 public class StudentService {
-	
+
 	@Autowired
 	StudentRepo stuRepo;
 
@@ -18,23 +18,36 @@ public class StudentService {
 		String res = "";
 		try {
 			stuRepo.save(stu);
-			
-			res = "successfully added new stu.."+
-			stu.getRollNo()+" into DB";
-				
-		}catch(Exception e) {
-			res = "not able to insert new Student..."+stu.getRollNo();
+
+			res = "successfully added new stu.." + stu.getRollNo() + " into DB";
+
+		} catch (Exception e) {
+			res = "not able to insert new Student..." + stu.getRollNo();
 		}
 		return res;
 	}
 
 	public List<Student> fetAllStudents() {
-		
+
 		return stuRepo.findAll();
 	}
 
 	public Student fetOnlyOneStudent(int rollNo) {
 		return stuRepo.findById(rollNo).orElse(new Student());
+	}
+
+	public String deleteStudent(int rollNo) {
+		String res = "";
+		try {
+			stuRepo.deleteById(rollNo);
+			res = "sucessfully deleted student--->" + rollNo;
+		} catch (Exception e) {
+			res = "not able to  delete student--->" + rollNo;
+
+		}
+
+		return res;
+
 	}
 
 }
