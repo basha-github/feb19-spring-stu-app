@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.stpeters.stu.marks.entity.Student;
@@ -33,11 +34,11 @@ public class StudentController {
 		
 		return stuService.fetAllStudents();
 	}
-
 	
-	
-	
-	
-	
+	@GetMapping("/stu/mng/get/one")
+	public Student getOnleOneStu(@RequestParam int rollNo){
+		
+		return stuService.fetOnlyOneStudent(rollNo);
+	}
 	
 }

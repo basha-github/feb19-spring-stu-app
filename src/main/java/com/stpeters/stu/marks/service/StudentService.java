@@ -33,4 +33,8 @@ public class StudentService {
 		return stuRepo.findAll();
 	}
 
+	public Student fetOnlyOneStudent(int rollNo) {
+		return stuRepo.findById(rollNo).orElse(new Student());
+	}
+
 }
