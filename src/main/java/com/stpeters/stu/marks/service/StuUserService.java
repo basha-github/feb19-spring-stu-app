@@ -1,5 +1,7 @@
 package com.stpeters.stu.marks.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,15 +33,43 @@ public class StuUserService {
 		try {
 			StuUsers oldStu = db.findById(data.getEmail()).get();
 			if (oldStu.getEmail().contentEquals(data.getEmail())) {
-
 				db.save(data);
 				res = "successfully updated  user--->" + data.getEmail();
-
 			}
 		} catch (Exception e) {
 			res = "error while updating" + " in to db--->" + data.getEmail();
 		}
 
+		return res;
+	}
+
+	public String deleteUser(String email) {
+		 db.deleteById(email);
+		 return "successfully deleted---."+email;
+	}
+
+	public List<StuUsers> getAllUsers() {
+		// TODO Auto-generated method stub
+		return db.findAll();
+	}
+
+	public boolean searchUser(String email) {
+
+		boolean res = false;
+		
+		try {
+			StuUsers oldStu = db.findById(email).get();
+			if (oldStu.getEmail().contentEquals(email)) {
+			 
+				res = true;
+			}
+		} catch (Exception e) {
+			
+		
+		}
+
+
+		
 		return res;
 	}
 
