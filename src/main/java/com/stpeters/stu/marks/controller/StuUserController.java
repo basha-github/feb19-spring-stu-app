@@ -9,6 +9,27 @@ import org.springframework.web.bind.annotation.RestController;
 import com.stpeters.stu.marks.entity.StuUsers;
 import com.stpeters.stu.marks.service.StuUserService;
 
+/*
+ * http://localhost:8080/stu/mng/users/add
+ * 
+ * method:::::post
+ * 
+ * 
+ * request  body
+ * 
+ * {
+    "email": "xyz@gmail.com",
+    "password": "998877"
+}
+ * 
+ * 
+ * 
+ * 
+ */
+
+
+
+
 @RestController
 @CrossOrigin("*")
 public class StuUserController {

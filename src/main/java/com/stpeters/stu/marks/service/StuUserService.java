@@ -16,10 +16,8 @@ public class StuUserService {
 		String res = "";
 
 		try {
-
 			db.save(data);
 			res = "successfully added new user--->" + data.getEmail();
-		
 		} catch (Exception e) {
 			res = "error while inserting" + " in to db--->" + data.getEmail();
 		}
