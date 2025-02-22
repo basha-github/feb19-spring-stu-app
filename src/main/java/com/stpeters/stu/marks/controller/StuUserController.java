@@ -32,10 +32,6 @@ import com.stpeters.stu.marks.service.StuUserService;
  * 
  * 
  */
-
-
-
-
 @RestController
 @CrossOrigin("*")
 public class StuUserController {
@@ -45,37 +41,27 @@ public class StuUserController {
 		
 	@PostMapping("/stu/mng/users/add")
 	public String addNewUser(@RequestBody StuUsers data) {
-		
-		
 		return  serVar.createNewUser(data);
 	}
 	
 	@PutMapping("/stu/mng/users/update")
 	public String updateUser(@RequestBody StuUsers data) {
-		
-		
 		return  serVar.updateUser(data);
 	}
+
 	@DeleteMapping("/stu/mng/users/delete")
 	public String deleteUser(@RequestParam String email) {
-		
-		
 		return  serVar.deleteUser(email);
 	}
+	
 	@GetMapping("/stu/mng/users/get/all")
 	public List<StuUsers> getAllUsers() {
-		
-		
 		return  serVar.getAllUsers();
 	}
 	
 	@GetMapping("/stu/mng/search/user")
 	public boolean searchUser(@RequestParam String email) {
-		
-		
 		return  serVar.searchUser(email);
 	}
 	
-	
-
 }
