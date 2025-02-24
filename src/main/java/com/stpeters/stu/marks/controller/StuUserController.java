@@ -60,8 +60,9 @@ public class StuUserController {
 	}
 	
 	@GetMapping("/stu/mng/search/user")
-	public boolean searchUser(@RequestParam String email) {
-		return  serVar.searchUser(email);
+	public boolean searchUser(@RequestParam String email,
+			String password) {
+		return  serVar.searchUser(email,password);
 	}
 	
 }

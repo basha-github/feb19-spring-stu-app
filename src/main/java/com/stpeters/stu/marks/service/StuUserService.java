@@ -53,13 +53,16 @@ public class StuUserService {
 		return db.findAll();
 	}
 
-	public boolean searchUser(String email) {
+	public boolean searchUser(String email, String password) {
 
 		boolean res = false;
 		
 		try {
 			StuUsers oldStu = db.findById(email).get();
-			if (oldStu.getEmail().contentEquals(email)) {
+			if( 
+					(oldStu.getEmail().contentEquals(email))
+				&&(oldStu.getPassword().contentEquals(password)
+						)){
 			 
 				res = true;
 			}
